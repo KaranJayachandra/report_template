@@ -1,0 +1,85 @@
+As we can see from figure \ref{fig:channel}, the transition probabilities and the input probabilities can definitively provide the distribution of the output symbols. Consider that the input symbol is $X$ and the output symbol is $Y$. From simple probabilistic identities:
+
+\begin{equation}
+    P(Y=0) \; = \; (1-p)x + (1-x)q
+\end{equation}
+
+\begin{equation}
+    P(Y=1) \; = \; px + (1-x)(1-q)
+\end{equation}
+
+From this, we can define the entropy in $Y$ as follows:
+
+\begin{multline}
+\label{hy}
+    H(Y) = -\left\{(1-p)x+(1-x)q\right\}\\\log_2{\left((1-p)x+(1-x)q\right)}\\-\left\{px+(1-x)(1-q)\right\}\\\log_2{\left(px+(1-x)(1-q)\right)}
+\end{multline}
+
+The Mutual Information between $Y$ and $X$ define the information about $Y$ that can be gleaned from $X$ and vice versa. This is defined as:
+
+\begin{equation}
+\label{ixy}
+    I(X;Y) = H(Y) - H(Y\mid X)
+\end{equation}
+
+To find the Conditional Entropy required to calculate the Mutual Information, we can sum over all the values that $X$ and the Entropy of $Y$ in each case.
+
+\begin{equation}
+    H(Y\mid X) = \sum \;p(x)\;H(Y\mid X = x)
+\end{equation}
+
+Substituting for the probabilities and the the Entropy of $Y$, we get:
+
+\begin{equation}
+\label{hyx}
+    H(Y\mid X) = xH(p) + (1-x)H(q)    
+\end{equation}
+
+Using equations \ref{hy} and \ref{hyx} in \ref{ixy}, we find that the Mutual Information can be given by:
+
+\begin{multline}
+    I(X;Y) = -\left\{(1-p)x+(1-x)q\right\}\\\log_2{\left((1-p)x+(1-x)q\right)}\\-\left\{px+(1-x)(1-q)\right\}\\\log_2{\left(px+(1-x)(1-q)\right)} \\ - xH(p) - (1-x)H(q)
+\end{multline}
+
+The Channel Capacity is then described as the maximum of this over all distributions of $X$:
+
+\begin{equation}
+\label{cu}
+    C = \underset{x}{\max} \; I(X;Y)
+\end{equation}
+
+Setting the derivative to $0$ of equation \ref{cu} provides the optimum value of the input distribution x as:
+
+\begin{equation}
+\label{xopt}
+    x_{opt} = \frac{1-(1+\alpha)q}{(1+\alpha)(1-p-q)}
+\end{equation}
+
+where $\alpha$ is defined as:
+
+\begin{equation}
+    \alpha = 2^{\frac{H(p)-H(q)}{1-p-q}}
+\end{equation}
+
+This is the general form of the solution for any p and q. Substituting for $x$ from equation \ref{xopt} to \ref{cu}. We can find the maximum capacity of the channel.
+
+Based on the problem statement, $q = 0.26$. Substituting this in the equation, we find that the optimum value of $x$ is:
+
+\begin{equation}
+    x_{opt} = \frac{0.74+0.26\alpha}{(1+\alpha)(0.74-p)}
+\end{equation}
+
+where $\alpha$ is:
+
+\begin{equation}
+    \alpha = \frac{H(p)-0.25}{0.74-p}    
+\end{equation}
+
+This gives the Capacity of the channel as:
+
+\begin{multline}
+\label{c}
+    C = -\left[\frac{1+0.52\alpha}{1+\alpha}\right]\log_2\left(\frac{1+0.52\alpha}{1+\alpha}\right)\\-\left[\frac{1.48+\alpha}{1+\alpha}\right]\log_2\left(\frac{1.48+\alpha}{1+\alpha}\right)\\+\frac{-0.12\alpha+0.25p+0.25p\alpha-0.74H(p)+0.26\alpha H(p)}{(1+\alpha)(0.74-p)}
+\end{multline}
+
+The above equation provides the Channel Capacity for any value of $p$.

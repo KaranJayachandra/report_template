@@ -1,0 +1,19 @@
+The above is implemented in MATLAB and the complete code is given in appendix \ref{code}. The code follows the same equations as the given above. We look at three snippets which form the basis of this analysis. In the first case, we have the function that provides the optimum value of $x$ as described in equation \ref{xopt}.
+
+\vspace{\baselineskip}
+\lstinputlisting[numbers=none]{code/snippet1.m}
+\vspace{\baselineskip}
+
+As seen, the function takes the transition probabilities as it's input and provides the optimum input distribution to maximize the capacity of the channel. The second snippet, details the calculation of the Mutual Information provided the values of the probabilities of transition and the input distribution.
+
+\vspace{\baselineskip}
+\lstinputlisting[numbers=none]{code/snippet2.m}
+\vspace{\baselineskip}
+
+The third shows the calculation of the capacity of known channel i.e., the Binary Symmetric Channel and the Z Channel.
+
+\vspace{\baselineskip}
+\lstinputlisting[numbers=none]{code/snippet3.m}
+\vspace{\baselineskip}
+
+The complete functionality of the analysis is described by the above three snippets.

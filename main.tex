@@ -1,0 +1,76 @@
+\documentclass[12pt]{article}
+\usepackage[affil-it]{authblk}
+\usepackage[utf8]{inputenc}
+\usepackage{fancyhdr}
+\usepackage{graphicx}
+\usepackage{tabularx}
+\usepackage[margin=2.5cm, headheight=26pt, includeheadfoot]{geometry}
+\usepackage{amsmath, listings, color, pdfpages}
+\usepackage{xr}
+\definecolor{mygreen}{RGB}{28,172,0}
+\definecolor{mylilas}{RGB}{170,55,241}
+
+\title{Channel Capacity Calculations}
+\author{Karan Jayachandra}
+\affil{Personal Archive}
+\pagestyle{fancy}
+
+\fancyhf{}
+\lhead{\includegraphics[width=1cm]{assets/logo.jpg}}
+\lfoot{\includegraphics[width=\textwidth]{assets/line.png}}
+
+\begin{document}
+\lstset{language=Matlab,
+    breaklines=true,
+    morekeywords={matlab2tikz},
+    keywordstyle=\color{blue},
+    morekeywords=[2]{1}, keywordstyle=[2]{\color{black}},
+    identifierstyle=\color{black},
+    stringstyle=\color{mylilas},
+    commentstyle=\color{mygreen},
+    showstringspaces=false,
+    numbers=left,
+    numberstyle={\tiny \color{black}},
+    numbersep=9pt,
+    emph=[1]{for,end,break},emphstyle=[1]\color{red},
+}
+
+\makeatletter
+    \begin{titlepage}
+        \begin{center}
+            \includegraphics[width=0.5\linewidth]{../report\_template/assets/logo.jpg}\\[4ex]
+            {\huge \bfseries \@title }\\[2ex]
+            {\LARGE \@author}\\[30ex] 
+            {\large \@date} \\[8ex]
+            {Copyright (C) 2007 Free Software Foundation, Inc. \\ [2ex] Everyone is permitted to copy and distribute verbatim copies
+            of this license document, but changing it is not allowed.}
+        \end{center}
+    \end{titlepage}
+\makeatother
+\thispagestyle{empty}
+\newpage
+
+\setcounter{page}{1}
+
+\thispagestyle{fancy}
+
+\section{Introduction}
+\label{introduce}
+\input{sections/introduction}
+
+\section{Derivation}
+\label{derive}
+\input{sections/derivation}
+
+\section{Implementation}
+\label{implement}
+\input{sections/implementation}
+
+\section{Results}
+\label{results}
+\input{sections/results}
+
+\section{Discussion}
+\label{discuss}
+\input{sections/discussion}
+\end{document}
